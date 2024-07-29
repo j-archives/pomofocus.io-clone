@@ -26,3 +26,7 @@ margin, padding, and width, played crucial role in this!<br>
 - Classes
 - Centering
 - Flexbox
+
+
+<h6> Date Started: 07/29/2024 <br>
+Date Finished:  07/29/2024</h6>
