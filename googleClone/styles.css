@@ -1,15 +1,16 @@
 body {
     margin: 0;
     padding: 0;
-    margin-left: 200px;
-    align-items: center;
-    text-align: center;
+}
+
+div {
+    margin-top: 100px;
 }
 
 img {
     display: block;
     width: 300px;
-    margin-top: 200px;
+    
 }
 
 input {
