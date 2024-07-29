@@ -24,3 +24,6 @@ I also learned about display: inline; which puts two elements beside each other.
 
 # Features
 Currently, these buttons don't work. This is just pure styling
+
+<h6> Date Started: 07/29/2024 <br>
+Date Finished:  07/29/2024</h6>
