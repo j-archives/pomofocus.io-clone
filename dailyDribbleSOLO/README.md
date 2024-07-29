@@ -13,3 +13,16 @@ display: flex;
 
 margin, padding, and width, played crucial role in this!<br>
 *the p's width is adopted from the img width
+<br>
+<br>
+# Recap
+++ The lesson here discussed about:
+- CSS Syntax
+- Inline VS Block
+- Margin
+- Padding
+- Border
+- Div
+- Classes
+- Centering
+- Flexbox
