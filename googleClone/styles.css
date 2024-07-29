@@ -1,18 +1,23 @@
-body {
-    margin: 0;
-    padding: 0;
-}
 
-div {
-    margin-top: 100px;
-}
 
-img {
+.main {
     display: block;
-    width: 300px;
+    margin-top: 100px;
     
 }
 
-input {
+.google-img {
+    display: block;
+    width: 300px;
+    margin-bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    
+}
+
+.search-input {
+    display: block;
     width: 400px;
+    margin-left: auto;
+    margin-right: auto;
 }
