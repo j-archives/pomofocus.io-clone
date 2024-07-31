@@ -19,13 +19,40 @@ body {
     
 }
 
-hr {
+.task-wrapper {
+    /* background-color: #C15C5C; */
+    width: 470px;
+    display: block;
+    margin: 10px auto;
+    text-align: center;
+    color: white;
+}
+
+
+#tasks {
+    text-align: left;
+    
+}
+
+#hr-el {
     border: 1px solid #A44E4E;
 }
 
 #pomo-logo {
     margin-right: 8px;
     margin-top: 15px;
+}
+
+#task-btn {
+    width: 100%;
+    margin: 10px 0;
+    padding: 17px;
+    color: #C57A7A;
+    font-weight: bold;
+    font-size: 16px;
+    border: 2px dashed #C57A7A;
+    background-color: #AB4343;
+    cursor: pointer;
 }
 
 #timer {
