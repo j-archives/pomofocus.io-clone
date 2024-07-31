@@ -6,9 +6,6 @@ const bodyEl = document.querySelector("body")
 const contentWrapper = document.getElementById("content")
 
 
-let totalTimeInSeconds = 0 * 60;
-const timerInterval = setInterval(updateTimer, 1000);
-
 const timer = document.getElementById("timer")
 const hrEl = document.getElementById("hr-el")
 const startBtn = document.getElementById("start")
