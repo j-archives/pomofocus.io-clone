@@ -23,8 +23,9 @@ hr {
     border: 1px solid #A44E4E;
 }
 
-.pomo-logo {
-    
+#pomo-logo {
+    margin-right: 8px;
+    margin-top: 15px;
 }
 
 #timer {
