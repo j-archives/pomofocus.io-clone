@@ -36,19 +36,29 @@ function timerCondition() {
     }
 }
 
-
-startBtn.addEventListener("click", () => {
-    startBtnClicked = true
-    if (startBtn.textContent === "START") {
-        startBtn.textContent = "PAUSE"
-        console.log("Start button was clicked")
-        timerCondition()
+function startButtonChecker() {
+    if (startBtnClicked) {
+        if (startBtn.textContent === "START") {
+            startBtn.textContent = "PAUSE"
+            console.log("Start button was clicked")
+            timerCondition()
+        }
+        else {
+            startBtn.textContent = "START"
+            console.log("Pause button was clicked")
+            
+        }
     }
     else {
         startBtn.textContent = "START"
-        console.log("Pause button was clicked")
-        
+        console.log("Start button was not clicked")
     }
+}
+
+
+startBtn.addEventListener("click", () => {
+    startBtnClicked = true
+    startButtonChecker()
     
 })
 
@@ -81,7 +91,9 @@ pomodoroBtn.addEventListener("click", () => {
     pomodoroOn = true
     shortBreakOn = false
     longBreakOn = false
-    // timerCondition()
+    
+    startBtnClicked = false
+    startButtonChecker()
 })
 
 
@@ -116,6 +128,9 @@ shortBrBtn.addEventListener("click", () => {
     pomodoroOn = false
     shortBreakOn = true
     longBreakOn = false
+    
+    startBtnClicked = false
+    startButtonChecker()
     // timerCondition()
 
     
@@ -153,6 +168,9 @@ longBrBtn.addEventListener("click", () => {
     pomodoroOn = false
     shortBreakOn = false
     longBreakOn = true
+    
+    startBtnClicked = false
+    startButtonChecker()
     // timerCondition()
 })
 
