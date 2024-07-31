@@ -5,7 +5,10 @@ const longBrBtn = document.getElementById("long-br-btn")
 const bodyEl = document.querySelector("body")
 const contentWrapper = document.getElementById("content")
 
-// let totalTimeInSeconds = 5 * 60;
+
+let totalTimeInSeconds = 0 * 60;
+const timerInterval = setInterval(updateTimer, 1000);
+
 const timer = document.getElementById("timer")
 const hrEl = document.getElementById("hr-el")
 const startBtn = document.getElementById("start")
@@ -13,36 +16,63 @@ const startBtn = document.getElementById("start")
 const pomoIdentifier = document.getElementById("pomo-identifier")
 const taskBtn = document.getElementById("task-btn")
 
-// function formatTime(seconds) {
-//     const minutes = Math.floor(seconds / 60);
-//     const remainingSeconds = seconds % 60;
-//     return `${String(minutes).padStart(2, '0')}:${String(remainingSeconds).padStart(2, '0')}`;
-// }
+let startBtnClicked = false
+let pomodoroOn = true
+let shortBreakOn = false
+let longBreakOn = false
 
-// function updateTimer() {
-//     if (totalTimeInSeconds <= 0) {
-//         clearInterval(timerInterval);
-//         timerElement.textContent = '00:00';
-//         return;
-//     }
+function timerCondition() {
+    if (pomodoroOn) {
+        totalTimeInSeconds = 25 * 60;
+        updateTimer()
+    }
+    else if (shortBreakOn) {
+        totalTimeInSeconds = 5 * 60;
+        updateTimer()
+    }
+    else if (longBreakOn) {
+        totalTimeInSeconds = 15 * 60;
+        updateTimer()
+    }
+    else {
+        totalTimeInSeconds = 0;
+    }
+}
 
-//     timer.textContent = formatTime(totalTimeInSeconds);
-//     totalTimeInSeconds -= 1;
-// }
 
-// const timerInterval = setInterval(updateTimer, 1000);
+function formatTime(seconds) {
+    const minutes = Math.floor(seconds / 60);
+    const remainingSeconds = seconds % 60;
+    return `${String(minutes).padStart(2, '0')}:${String(remainingSeconds).padStart(2, '0')}`;
+}
 
-// function countdownTimer (){
-//     setInterval(function () {
-//         var d = new Date(); //get current time
-//         var seconds = d.getMinutes() * 60 + d.getSeconds(); //convet current mm:ss to seconds for easier caculation, we don't care hours.
-//         var fiveMin = 60 * 5; //five minutes is 300 seconds!
-//         var timeleft = fiveMin - seconds % fiveMin; // let's say now is 01:30, then current seconds is 60+30 = 90. And 90%300 = 90, finally 300-90 = 210. That's the time left!
-//         var result = parseInt(timeleft / 60) + ':' + timeleft % 60; //formart seconds back into mm:ss 
-//         timer.innerHTML = result;
+
+function updateTimer() {
+    if (totalTimeInSeconds <= 0) {
+        clearInterval(timerInterval);
+        return;
+    }
+
+    timer.textContent = formatTime(totalTimeInSeconds);
+    totalTimeInSeconds -= 1;
+}
+
+
+startBtn.addEventListener("click", () => {
+    startBtnClicked = true
+    if (startBtn.textContent === "START") {
+        startBtn.textContent = "PAUSE"
+        console.log("Start button was clicked")
+        timerCondition()
+    }
+    else {
+        startBtn.textContent = "START"
+        console.log("Pause button was clicked")
+        
+    }
     
-//     }, 1000)
-// }
+    
+})
 
 pomodoroBtn.addEventListener("click", () => {
     bodyEl.style.backgroundColor = "#BA4949"
@@ -70,7 +100,10 @@ pomodoroBtn.addEventListener("click", () => {
     taskBtn.style.border = "2px dashed #C57A7A"
     taskBtn.style.color = "#C57A7A"
     
-    
+    pomodoroOn = true
+    shortBreakOn = false
+    longBreakOn = false
+    // timerCondition()
 })
 
 
@@ -101,6 +134,11 @@ shortBrBtn.addEventListener("click", () => {
     taskBtn.style.transition = "background-color 0.5s ease"
     taskBtn.style.border = "2px dashed #75A6A9"
     taskBtn.style.color = "#75A6A9"
+
+    pomodoroOn = false
+    shortBreakOn = true
+    longBreakOn = false
+    // timerCondition()
 
     
 })
@@ -134,5 +172,10 @@ longBrBtn.addEventListener("click", () => {
 
     
     
+    pomodoroOn = false
+    shortBreakOn = false
+    longBreakOn = true
+    // timerCondition()
 })
+
 
