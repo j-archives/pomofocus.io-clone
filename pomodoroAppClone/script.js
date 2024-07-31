@@ -40,24 +40,6 @@ function timerCondition() {
 }
 
 
-function formatTime(seconds) {
-    const minutes = Math.floor(seconds / 60);
-    const remainingSeconds = seconds % 60;
-    return `${String(minutes).padStart(2, '0')}:${String(remainingSeconds).padStart(2, '0')}`;
-}
-
-
-function updateTimer() {
-    if (totalTimeInSeconds <= 0) {
-        clearInterval(timerInterval);
-        return;
-    }
-
-    timer.textContent = formatTime(totalTimeInSeconds);
-    totalTimeInSeconds -= 1;
-}
-
-
 startBtn.addEventListener("click", () => {
     startBtnClicked = true
     if (startBtn.textContent === "START") {
@@ -70,7 +52,6 @@ startBtn.addEventListener("click", () => {
         console.log("Pause button was clicked")
         
     }
-    
     
 })
 
