@@ -6,7 +6,9 @@ const bodyEl = document.querySelector("body")
 const contentWrapper = document.getElementById("content")
 
 // let totalTimeInSeconds = 5 * 60;
-// const timer = document.getElementById("timer")
+const timer = document.getElementById("timer")
+const hrEl = document.getElementById("hr-el")
+const startBtn = document.getElementById("start")
 
 // function formatTime(seconds) {
 //     const minutes = Math.floor(seconds / 60);
@@ -47,15 +49,21 @@ pomodoroBtn.addEventListener("click", () => {
     contentWrapper.style.transition = "background-color 0.5s ease"
 
     pomodoroBtn.style.backgroundColor = "#A44E4E"
+    hrEl.style.border = "1px solid #A44E4E"
+    startBtn.style.color = "#BA4949"
     
 
     shortBrBtn.style.backgroundColor = "#C15C5C"
     shortBrBtn.style.transition = "background-color 0.5s ease"
     longBrBtn.style.backgroundColor = "#C15C5C"
     longBrBtn.style.transition = "background-color 0.5s ease"
+
+    timer.textContent = "25:00"
     
     
 })
+
+
 
 shortBrBtn.addEventListener("click", () => {
     bodyEl.style.backgroundColor = "#38858A"
@@ -65,13 +73,17 @@ shortBrBtn.addEventListener("click", () => {
     contentWrapper.style.transition = "background-color 0.5s ease"
 
     shortBrBtn.style.backgroundColor = "#417B80"
+    hrEl.style.border = "1px solid #417B80"
+    startBtn.style.color = "#38858A"
+    
     
 
     pomodoroBtn.style.backgroundColor = "#4C9196"
     pomodoroBtn.style.transition = "background-color 0.5s ease"
     longBrBtn.style.backgroundColor = "#4C9196"
     longBrBtn.style.transition = "background-color 0.5s ease"
-    countdownTimer()
+    
+    timer.textContent = "5:00"
 
     
 })
@@ -84,11 +96,16 @@ longBrBtn.addEventListener("click", () => {
     contentWrapper.style.transition = "background-color 0.5s ease"
 
     longBrBtn.style.backgroundColor = "#426C8A"
+    hrEl.style.border = "1px solid #426C8A"
+    startBtn.style.color = "#397097"
+    
     
 
     pomodoroBtn.style.backgroundColor = "#4D7FA2"
     pomodoroBtn.style.transition = "background-color 0.5s ease"
     shortBrBtn.style.backgroundColor = "#4D7FA2"
     shortBrBtn.style.transition = "background-color 0.5s ease"
+
+    timer.textContent = "15:00"
 })
 
