@@ -5,21 +5,22 @@ body {
 
 .main-container{
     display: block;
-    width: 500px;
+    width: 640px;
     margin: 10px auto;
 }
 
 .contents-wrapper {
     background-color: #C15C5C;
     display: block;
+    margin: 50px auto;
     align-items: center;
     text-align: center;
-    margin-top: 25px;
+    width: 470px;
     
 }
 
 hr {
-    border: 1px solid #9a3d3d;
+    border: 1px solid #A44E4E;
 }
 
 #timer {
@@ -50,9 +51,13 @@ a {
     border-radius: 5px;
 }
 .pomo-type-btn {
-    margin: 25px 0;
-    font-size: 16px;
+    margin: 17px 0;
+    font-size: 15px;
     padding: 7px 17px;
     cursor: pointer;
+    background-color: #C15C5C;
+}
+
+#pomodoro-btn {
     background-color: #A44E4E;
 }
