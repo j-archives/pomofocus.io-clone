@@ -10,6 +10,9 @@ const timer = document.getElementById("timer")
 const hrEl = document.getElementById("hr-el")
 const startBtn = document.getElementById("start")
 
+const pomoIdentifier = document.getElementById("pomo-identifier")
+const taskBtn = document.getElementById("task-btn")
+
 // function formatTime(seconds) {
 //     const minutes = Math.floor(seconds / 60);
 //     const remainingSeconds = seconds % 60;
@@ -59,6 +62,13 @@ pomodoroBtn.addEventListener("click", () => {
     longBrBtn.style.transition = "background-color 0.5s ease"
 
     timer.textContent = "25:00"
+
+    pomoIdentifier.textContent = "Time to focus!"
+
+    taskBtn.style.backgroundColor = "#AB4343"
+    taskBtn.style.transition = "background-color 0.5s ease"
+    taskBtn.style.border = "2px dashed #C57A7A"
+    taskBtn.style.color = "#C57A7A"
     
     
 })
@@ -85,6 +95,13 @@ shortBrBtn.addEventListener("click", () => {
     
     timer.textContent = "5:00"
 
+    pomoIdentifier.textContent = "Time for a break!"
+
+    taskBtn.style.backgroundColor = "#337A7F"
+    taskBtn.style.transition = "background-color 0.5s ease"
+    taskBtn.style.border = "2px dashed #75A6A9"
+    taskBtn.style.color = "#75A6A9"
+
     
 })
 
@@ -107,5 +124,15 @@ longBrBtn.addEventListener("click", () => {
     shortBrBtn.style.transition = "background-color 0.5s ease"
 
     timer.textContent = "15:00"
+
+    pomoIdentifier.textContent = "Time for a break!"
+
+    taskBtn.style.backgroundColor = "#34678B"
+    taskBtn.style.transition = "background-color 0.5s ease"
+    taskBtn.style.border = "2px dashed #7699B1"
+    taskBtn.style.color = "#7699B1"
+
+    
+    
 })
 
