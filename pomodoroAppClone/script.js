@@ -73,6 +73,7 @@ function startButtonChecker() {
         startBtn.textContent = "START"
         console.log("Start button was not clicked")
     }
+    console.log("Start button Checker called")
 }
 
 
@@ -114,6 +115,9 @@ pomodoroBtn.addEventListener("click", () => {
     
     startBtnClicked = false
     startButtonChecker()
+    clearInterval(time)
+    console.log("cleared interval")
+
 })
 
 
@@ -151,7 +155,8 @@ shortBrBtn.addEventListener("click", () => {
     
     startBtnClicked = false
     startButtonChecker()
-    // timerCondition()
+    clearInterval(time)
+    console.log("cleared interval")
 
     
 })
@@ -191,7 +196,8 @@ longBrBtn.addEventListener("click", () => {
     
     startBtnClicked = false
     startButtonChecker()
-    // timerCondition()
+    clearInterval(time)
+    console.log("cleared interval")
 })
 
 
