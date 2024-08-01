@@ -2,6 +2,7 @@ const pomodoroBtn = document.getElementById("pomodoro-btn")
 const shortBrBtn = document.getElementById("short-br-btn")
 const longBrBtn = document.getElementById("long-br-btn")
 
+const titleEl = document.querySelector("title")
 const bodyEl = document.querySelector("body")
 const contentWrapper = document.getElementById("content")
 
@@ -21,21 +22,54 @@ let longBreakOn = false
 let isPaused = true
 let totalTimeInSeconds = 0
 let time
+let minutes
+let seconds
+function changePageTitle() {
+    if (pomodoroOn) {
+        titleEl.textContent += ` - Time to focus!`
+    }
+    else if (shortBreakOn) {
+        titleEl.textContent += ` - Time for a break!`
+    }
+    else if (longBreakOn) {
+        titleEl.textContent += ` - Time for a break!`
+    }
+    else {
+        // let timerOrig = timer.textContent.split(":")[0] * 60 + timer.textContent.split(":")[1] * 1
+        // titleEl.textContent = `${timerOrig} - Time to focus!`
+    }
+}
+
+function newTabTitle() {
+    if (shortBreakOn) {
+        titleEl.textContent = `5:00 - Time for a break!`
+    }
+    else if (longBreakOn) {
+        titleEl.textContent = `15:00 - Time for a break!`
+    }
+    else {
+        titleEl.textContent = `25:00 - Time to focus!`
+    }
+}
+
 
 function updateTimer() {
     totalTimeInSeconds = timer.textContent.split(":")[0] * 60 + timer.textContent.split(":")[1] * 1
     if (!isPaused) {
         time = setInterval(() => {
             totalTimeInSeconds--
-            let minutes = Math.floor(totalTimeInSeconds / 60)
-            let seconds = totalTimeInSeconds % 60
-            timer.innerHTML = `${minutes}:${seconds}`    
+            minutes = Math.floor(totalTimeInSeconds / 60)
+            seconds = totalTimeInSeconds % 60
+            timer.innerHTML = `${minutes}:${seconds}`   
+            titleEl.innerHTML = `${minutes}:${seconds}` 
+            changePageTitle() 
+            
     
             if (totalTimeInSeconds <= 0) {
                 clearInterval(time)
                 timerCondition() 
-                let minutes = Math.floor(totalTimeInSeconds / 60)
-                let seconds = totalTimeInSeconds % 60
+                minutes = Math.floor(totalTimeInSeconds / 60)
+                seconds = totalTimeInSeconds % 60
                 timer.innerHTML = `${minutes}:${seconds}`
             }
         }, 1000)
@@ -133,6 +167,7 @@ pomodoroBtn.addEventListener("click", () => {
     isPaused = true
     startButtonChecker()
     updateTimer()
+    newTabTitle()
 
 })
 
@@ -175,6 +210,8 @@ shortBrBtn.addEventListener("click", () => {
     isPaused = true
     startButtonChecker()
     updateTimer()
+    newTabTitle()
+    
 
     
 })
@@ -218,6 +255,7 @@ longBrBtn.addEventListener("click", () => {
     isPaused = true
     startButtonChecker()
     updateTimer()
+    newTabTitle()
 })
 
 
