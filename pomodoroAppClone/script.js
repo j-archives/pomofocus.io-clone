@@ -18,22 +18,40 @@ let pomodoroOn = true
 let shortBreakOn = false
 let longBreakOn = false
 
+let isPaused = false
+let totalTimeInSeconds = 0
+let time
+
+function updateTimer() {
+    clearInterval(time);
+    time = setInterval(() => {
+        if (!isPaused) {
+            totalTimeInSeconds--;
+            let minutes = Math.floor(totalTimeInSeconds / 60);
+            let seconds = totalTimeInSeconds % 60;
+            timer.textContent = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+
+            if (totalTimeInSeconds <= 0) {
+                clearInterval(time);
+            }
+        }
+    }, 1000);
+}
+
 function timerCondition() {
     if (pomodoroOn) {
         totalTimeInSeconds = 25 * 60;
-        updateTimer()
     }
     else if (shortBreakOn) {
         totalTimeInSeconds = 5 * 60;
-        updateTimer()
     }
     else if (longBreakOn) {
         totalTimeInSeconds = 15 * 60;
-        updateTimer()
     }
     else {
         totalTimeInSeconds = 0;
     }
+    updateTimer()
 }
 
 function startButtonChecker() {
@@ -46,6 +64,8 @@ function startButtonChecker() {
         else {
             startBtn.textContent = "START"
             console.log("Pause button was clicked")
+            isPaused = true
+            timerCondition()
             
         }
     }
