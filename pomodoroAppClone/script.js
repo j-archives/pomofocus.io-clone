@@ -18,40 +18,52 @@ let pomodoroOn = true
 let shortBreakOn = false
 let longBreakOn = false
 
-let isPaused = false
+let isPaused = true
 let totalTimeInSeconds = 0
 let time
 
 function updateTimer() {
-    clearInterval(time);
-    time = setInterval(() => {
-        if (!isPaused) {
-            totalTimeInSeconds--;
-            let minutes = Math.floor(totalTimeInSeconds / 60);
-            let seconds = totalTimeInSeconds % 60;
-            timer.textContent = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
-
+    totalTimeInSeconds = timer.textContent.split(":")[0] * 60 + timer.textContent.split(":")[1] * 1
+    if (!isPaused) {
+        time = setInterval(() => {
+            totalTimeInSeconds--
+            let minutes = Math.floor(totalTimeInSeconds / 60)
+            let seconds = totalTimeInSeconds % 60
+            timer.innerHTML = `${minutes}:${seconds}`    
+    
             if (totalTimeInSeconds <= 0) {
-                clearInterval(time);
+                clearInterval(time)
+                timerCondition() 
+                let minutes = Math.floor(totalTimeInSeconds / 60)
+                let seconds = totalTimeInSeconds % 60
+                timer.innerHTML = `${minutes}:${seconds}`
             }
-        }
-    }, 1000);
+        }, 1000)
+    }
+    else {
+        clearInterval(time)
+    }
 }
 
 function timerCondition() {
     if (pomodoroOn) {
         totalTimeInSeconds = 25 * 60;
+        
     }
     else if (shortBreakOn) {
         totalTimeInSeconds = 5 * 60;
+        
     }
     else if (longBreakOn) {
+        
         totalTimeInSeconds = 15 * 60;
     }
     else {
         totalTimeInSeconds = 0;
     }
-    updateTimer()
+
+    // totalTimeInSeconds = timer.textContent.split(":")[0] * 60 + timer.textContent.split(":")[1] * 1
+    // updateTimer()
 }
 
 function startButtonChecker() {
@@ -59,13 +71,14 @@ function startButtonChecker() {
         if (startBtn.textContent === "START") {
             startBtn.textContent = "PAUSE"
             console.log("Start button was clicked")
-            timerCondition()
+            isPaused = false
+            
         }
         else {
             startBtn.textContent = "START"
             console.log("Pause button was clicked")
             isPaused = true
-            timerCondition()
+            
             
         }
     }
@@ -73,7 +86,8 @@ function startButtonChecker() {
         startBtn.textContent = "START"
         console.log("Start button was not clicked")
     }
-    console.log("Start button Checker called")
+    updateTimer()
+    // console.log("Start button Checker called")
 }
 
 
@@ -114,9 +128,11 @@ pomodoroBtn.addEventListener("click", () => {
     longBreakOn = false
     
     startBtnClicked = false
-    startButtonChecker()
     clearInterval(time)
     console.log("cleared interval")
+    isPaused = true
+    startButtonChecker()
+    updateTimer()
 
 })
 
@@ -154,9 +170,11 @@ shortBrBtn.addEventListener("click", () => {
     longBreakOn = false
     
     startBtnClicked = false
-    startButtonChecker()
     clearInterval(time)
     console.log("cleared interval")
+    isPaused = true
+    startButtonChecker()
+    updateTimer()
 
     
 })
@@ -195,9 +213,11 @@ longBrBtn.addEventListener("click", () => {
     longBreakOn = true
     
     startBtnClicked = false
-    startButtonChecker()
     clearInterval(time)
     console.log("cleared interval")
+    isPaused = true
+    startButtonChecker()
+    updateTimer()
 })
 
 
