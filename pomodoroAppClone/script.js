@@ -73,9 +73,13 @@ function updateTimer() {
                 timer.innerHTML = `${minutes}:${seconds}` 
                 
                 if (seconds < 10 ){
-                    timer.innerHTML = `${minutes}:0${seconds}`
+                    timer.innerHTML = `0${minutes}:0${seconds}`
                 }
             }
+
+
+
+            
 
             // timer.innerHTML = `${minutes}:${seconds}`   
             // titleEl.innerHTML = `${minutes}:${seconds}` 

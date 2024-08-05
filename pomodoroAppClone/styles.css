@@ -29,6 +29,25 @@ body {
     color: white;
 }
 
+.tasks-holder {
+    display: block;
+    width: 470px;
+    
+    
+}
+
+.new-task-test {
+    width: 100%;
+    margin: 3px 0;
+    padding: 15px;
+    border: none;
+    border-radius: 5px;
+
+    color: darkslategrey;
+    font-weight: bold;
+    text-align: left;
+    cursor: pointer;
+}
 
 #tasks {
     text-align: left;
