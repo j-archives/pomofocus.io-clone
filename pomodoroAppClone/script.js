@@ -60,8 +60,25 @@ function updateTimer() {
             totalTimeInSeconds--
             minutes = Math.floor(totalTimeInSeconds / 60)
             seconds = totalTimeInSeconds % 60
-            timer.innerHTML = `${minutes}:${seconds}`   
-            titleEl.innerHTML = `${minutes}:${seconds}` 
+
+            if (minutes < 10) {
+                timer.innerHTML = `0${minutes}:${seconds}` 
+
+                if (seconds < 10 ){
+                    timer.innerHTML = `0${minutes}:0${seconds}`
+                }
+            }
+
+            else {
+                timer.innerHTML = `${minutes}:${seconds}` 
+                
+                if (seconds < 10 ){
+                    timer.innerHTML = `${minutes}:0${seconds}`
+                }
+            }
+
+            // timer.innerHTML = `${minutes}:${seconds}`   
+            // titleEl.innerHTML = `${minutes}:${seconds}` 
             changePageTitle() 
             
     
@@ -191,7 +208,7 @@ shortBrBtn.addEventListener("click", () => {
     longBrBtn.style.backgroundColor = "#4C9196"
     longBrBtn.style.transition = "background-color 0.5s ease"
     
-    timer.textContent = "5:00"
+    timer.textContent = "05:00"
 
     pomoIdentifier.textContent = "Time for a break!"
 
