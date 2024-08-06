@@ -110,11 +110,15 @@ document.addEventListener("DOMContentLoaded", () => {
                 
         
                 if (totalTimeInSeconds <= 0) {
+                    startBtn.textContent = "START"
                     clearInterval(time)
-                    timerCondition() 
-                    minutes = Math.floor(totalTimeInSeconds / 60)
-                    seconds = totalTimeInSeconds % 60
-                    timer.innerHTML = `${minutes}:${seconds}`
+                    timerCondition()
+                    
+                     
+
+                    // minutes = Math.floor(totalTimeInSeconds / 60)
+                    // seconds = totalTimeInSeconds % 60
+                    // timer.innerHTML = `${minutes}:${seconds}`
                 }
             }, 1000)
         }
@@ -126,18 +130,22 @@ document.addEventListener("DOMContentLoaded", () => {
     function timerCondition() {
         if (pomodoroOn) {
             totalTimeInSeconds = 25 * 60;
+            timer.innerHTML = "25:00"
             
         }
         else if (shortBreakOn) {
             totalTimeInSeconds = 5 * 60;
+            timer.innerHTML = "05:00"
             
         }
         else if (longBreakOn) {
             
             totalTimeInSeconds = 15 * 60;
+            timer.innerHTML = "15:00"
         }
         else {
             totalTimeInSeconds = 0;
+            timer.innerHTML = "00:00"
         }
 
         // totalTimeInSeconds = timer.textContent.split(":")[0] * 60 + timer.textContent.split(":")[1] * 1
