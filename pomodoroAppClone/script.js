@@ -39,6 +39,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const taskInput = document.getElementById("task-input")
     const saveTaskBtn = document.getElementById("save-button")
     const cancelTaskBtn = document.getElementById("cancel-button")
+
+    let taskArr = []
     
     taskBtn.addEventListener("click", () =>  {
         window.scroll({
@@ -63,10 +65,23 @@ document.addEventListener("DOMContentLoaded", () => {
     })
 
     saveTaskBtn.addEventListener("click", () => {
-        let task = taskInput.value
-        taskHolder.innerHTML += `<button class="new-task-test">${task}</button>`
+        taskArr.push(taskInput.value)
         taskInput.value = ""
+        renderTasks(taskArr)
     })
+
+    function renderTasks(arr) {
+        let listItem = ""
+
+        for (let i=0; i<arr.length; i++){
+
+            listItem += `<button class="new-task-test">${arr[i]}</button>`
+
+        }
+
+        taskHolder.innerHTML = listItem
+    }
+
 
 
     function changePageTitle() {
