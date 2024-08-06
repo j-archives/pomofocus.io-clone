@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     console.log("script.js loaded")
+
     const pomodoroBtn = document.getElementById("pomodoro-btn")
     const shortBrBtn = document.getElementById("short-br-btn")
     const longBrBtn = document.getElementById("long-br-btn")
@@ -35,6 +36,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const taskHolder = document.getElementById("tasks-holder")
     const taskInputDiv = document.getElementById("task-input-container")
+    const taskInput = document.getElementById("task-input")
+    const saveTaskBtn = document.getElementById("save-button")
+    const cancelTaskBtn = document.getElementById("cancel-button")
+    
     taskBtn.addEventListener("click", () =>  {
         window.scroll({
             top: document.body.scrollHeight,
@@ -44,6 +49,23 @@ document.addEventListener("DOMContentLoaded", () => {
 
         taskBtn.style.display = "none"
         taskInputDiv.style.display = "block"
+    })
+
+    cancelTaskBtn.addEventListener("click", () => {
+        window.scroll({
+            top: 0,
+            left: 0,
+            behavior: 'smooth'
+        })
+
+        taskInputDiv.style.display = "none"
+        taskBtn.style.display = "block"
+    })
+
+    saveTaskBtn.addEventListener("click", () => {
+        let task = taskInput.value
+        taskHolder.innerHTML += `<button class="new-task-test">${task}</button>`
+        taskInput.value = ""
     })
 
 
