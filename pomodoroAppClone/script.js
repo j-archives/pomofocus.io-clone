@@ -24,6 +24,19 @@ let totalTimeInSeconds = 0
 let time
 let minutes
 let seconds
+
+// for task
+
+const taskHolder = document.getElementById("tasks-holder")
+console.log(taskHolder)
+
+taskBtn.addEventListener("click", () =>  {
+    taskHolder.innerHTML += `<button>new task</button>`
+})
+
+
+
+
 function changePageTitle() {
     if (pomodoroOn) {
         titleEl.textContent += ` - Time to focus!`
