@@ -31,7 +31,6 @@ document.addEventListener("DOMContentLoaded", () => {
     let time
     let minutes
     let seconds
-
     // for task
 
     const taskHolder = document.getElementById("tasks-holder")
@@ -40,8 +39,14 @@ document.addEventListener("DOMContentLoaded", () => {
     const saveTaskBtn = document.getElementById("save-button")
     const cancelTaskBtn = document.getElementById("cancel-button")
 
+    // const tasksBtn = document.getElementsByClassName("new-task-test")
+    console.log(taskBtn)
+
+    //task array container
     let taskArr = []
     
+    
+
     taskBtn.addEventListener("click", () =>  {
         window.scroll({
             top: document.body.scrollHeight,
