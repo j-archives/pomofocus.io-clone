@@ -59,6 +59,10 @@ body {
     cursor: pointer;
 }
 
+.new-task-test:hover {
+    border-left: 5px solid #dcdcdc;
+}
+
 #tasks {
     text-align: left;
     
