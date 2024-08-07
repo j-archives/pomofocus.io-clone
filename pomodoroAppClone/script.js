@@ -10,8 +10,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const longBrBtn = document.getElementById("long-br-btn")
 
     const titleEl = document.querySelector("title")
+    const headIcon = document.querySelector("link[rel='icon']")
     const bodyEl = document.querySelector("body")
     const contentWrapper = document.getElementById("content")
+    
 
 
     const timer = document.getElementById("timer")
@@ -262,6 +264,8 @@ document.addEventListener("DOMContentLoaded", () => {
         updateTimer()
         newTabTitle()
 
+        headIcon.href = "./assets/red-pomodoro.png"
+
     })
 
 
@@ -305,6 +309,7 @@ document.addEventListener("DOMContentLoaded", () => {
         updateTimer()
         newTabTitle()
         
+        headIcon.href = "./assets/green-pomodoro.png"
 
         
     })
@@ -349,6 +354,8 @@ document.addEventListener("DOMContentLoaded", () => {
         startButtonChecker()
         updateTimer()
         newTabTitle()
+
+        headIcon.href = "./assets/blue-pomodoro.png"
     })
 })
 
