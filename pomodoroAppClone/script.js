@@ -78,7 +78,6 @@ document.addEventListener("DOMContentLoaded", () => {
             listItem += `<button class="new-task-test">${arr[i]}</button>`
 
         }
-
         taskHolder.innerHTML = listItem
     }
 
@@ -107,8 +106,11 @@ document.addEventListener("DOMContentLoaded", () => {
         else if (longBreakOn) {
             titleEl.textContent = `15:00 - Time for a break!`
         }
-        else {
+        else if (pomodoroOn) {
             titleEl.textContent = `25:00 - Time to focus!`
+        }
+        else {
+            titleEl.textContent = `Pomofocus`
         }
     }
 
@@ -137,12 +139,9 @@ document.addEventListener("DOMContentLoaded", () => {
                     }
                 }
 
-
-
-                
-
                 // timer.innerHTML = `${minutes}:${seconds}`   
-                // titleEl.innerHTML = `${minutes}:${seconds}` 
+                // titleEl.innerHTML = `${minutes}:${seconds}`
+                titleEl.innerHTML = `${timer.innerHTML}` 
                 changePageTitle() 
                 
         
