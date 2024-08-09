@@ -142,7 +142,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     timer.innerHTML = `${minutes}:${seconds}` 
                     
                     if (seconds < 10 ){
-                        timer.innerHTML = `0${minutes}:0${seconds}`
+                        timer.innerHTML = `${minutes}:0${seconds}`
                     }
                 }
 
