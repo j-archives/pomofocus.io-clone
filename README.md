@@ -3,9 +3,9 @@ Pomofocus is a flexible Pomodoro timer designed for both desktop and mobile brow
 This app is inpired by the pomodoro technique and <a href="https://pomofocus.io/">Pomofocus.io</a> <br>
 ## User Interface
 - Pomodoro Home
-![pomofocus-home](https://github.com/j-archives/pomofocus-clone/blob/main/web%20screenshots/pomo-home.png)
+![pomofocus-home](https://github.com/j-archives/pomofocus.io-clone/blob/main/web%20screenshots/pomo-home.png)
 - Pomodoro Short Break
-![pomofocus-short-break](https://github.com/j-archives/pomofocus-clone/blob/main/web%20screenshots/pomo-short-break.png)
+![pomofocus-short-break](https://github.com/j-archives/pomofocus.io-clone/blob/main/web%20screenshots/pomo-short-break.png)
 - Pomodoro Long Break
-![pomofocus-long-break](https://github.com/j-archives/pomofocus-clone/blob/main/web%20screenshots/pomo-long-break.png)
+![pomofocus-long-break](https://github.com/j-archives/pomofocus.io-clone/blob/main/web%20screenshots/pomo-long-break.png)
 
